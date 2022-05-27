@@ -1,0 +1,25 @@
+{
+  "name": "mern-ecom-trav",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon backend/server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/InnoSufiyan/MERN-ECOM-Trav.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/InnoSufiyan/MERN-ECOM-Trav/issues"
+  },
+  "homepage": "https://github.com/InnoSufiyan/MERN-ECOM-Trav#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.1",
+    "nodemon": "^2.0.16"
+  }
+}
