@@ -7,7 +7,7 @@ import Rating from '../components/Rating'
 import { detailProduct } from '../redux/actions/productAction'
 
 export default function ProductScreen() {
-    const [qty, setQty] = useState(0)
+    const [qty, setQty] = useState(1)
     const dispatch = useDispatch()
     const navigate = useNavigate()
     const product = useSelector((state)=> state?.productDetail?.product)
