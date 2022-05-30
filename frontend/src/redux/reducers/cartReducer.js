@@ -1,27 +1,35 @@
 import { ActionTypes } from "../constants/action-types";
 
 export const cartReducer = (state = { cartItems: [] }, action) => {
-    switch (action.type) {
-        case ActionTypes.CART_ADD_ITEM:
-            const item = action.payload
+  switch (action.type) {
+    case ActionTypes.CART_ADD_ITEM:
+      const item = action.payload;
 
-            const existItem = state.cartItems.find(x => x.product === item.product)
+      console.log(item)
 
-            if (existItem) {
-                return {
-                    ...state,
-                    cartItems: state.cartItems.map(x => x.product === existItem.product ? item : x)
-                }
+      const existItem = state.cartItems.find((x) => x.product === item.product);
 
-            } else {
-                return {
-                    ...state,
-                    cartItems: [...state.cartItems, item]
-                }
-            }
+      if (existItem) {
+        return {
+          ...state,
+          cartItems: state.cartItems.map((x) =>
+            x.product === existItem.product ? item : x
+          ),
+        };
+      } else {
+        return {
+          ...state,
+          cartItems: [...state.cartItems, item],
+        };
+      }
 
-        default:
-            return state
-    }
+    case ActionTypes.CART_REMOVE_ITEM:
+        return {
+            ...state,
+            cartItems: state.cartItems.filter((x)=> x.product !== action.payload)
+        }
 
-}
+    default:
+      return state;
+  }
+};

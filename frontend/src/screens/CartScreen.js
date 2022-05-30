@@ -27,7 +27,10 @@ export default function CartScreen() {
   }, [dispatch, params.id, qty])
 
   const removeFromCartHandler = (id) => {
-    console.log("remove")
+    dispatch(removeFromCartHandler(id))
+  }
+
+  const checkOutHandler = () => {
 
   }
 
@@ -86,7 +89,15 @@ export default function CartScreen() {
         <Card>
           <ListGroup variant='flush'>
             <ListGroup.Item>
-              <h2>Subtotal () items</h2>
+              <h2>Subtotal ({cartItems.reduce((acc, cur)=> acc + cur.qty, 0)}) items</h2>
+              ${
+                cartItems.reduce((acc, cur)=> acc + cur.qty * cur.price, 0)
+              }
+            </ListGroup.Item>
+            <ListGroup.Item>
+              <Button type= 'button' className= 'btn-block' disabled={cartItems.length === 0} onClick= {checkOutHandler}>
+                Proceed to check out
+              </Button>
             </ListGroup.Item>
           </ListGroup>
         </Card>

@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors')
 const connectDB = require('./config/db')
 const productRoutes = require('./routes/productRoutes')
+const userRoutes = require('./routes/userRoutes.js')
 
 const app = express()
 const port = 5000;
@@ -18,6 +19,7 @@ app.get('/',(req,res)=> {
 })
 
 app.use('/api/products', productRoutes)
+app.use('/api/users', userRoutes)
 
 
 
